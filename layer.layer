@@ -1,0 +1,61 @@
+$file:gaas10.layer
+begin_layer
+
+
+$
+independent_mqw
+column column_num=1 w=1. mesh_num=3 r=1.
+bottom_contact column_num=1 from=0 to=1 contact_num=1 contact_type=ohmic
+$------------------------
+$ NUMBER 1
+$modified : remove doping, change d
+$
+layer_mater macro_name=algan column_num=1 var_symbol1=x var1=1
+layer d=0.5 n=20 r=0.9
+$----------------------
+$ NUMBER 2
+$modified : n to p doping, d, grade
+$
+layer_mater  macro_name=algan  column_num=1  var_symbol1=x  grade_var=1 &&
+grade_from=1.  grade_to=0.8
+layer  d=0.05  n=7  r=0.9
+$----------------------
+$MQW
+$
+include file=layer.bar
+include file=layer.well
+include file=layer.bar
+include file=layer.well
+include file=layer.bar
+include file=layer.well
+include file=layer.bar
+include file=layer.well
+include file=layer.bar
+include file=layer.well
+include file=layer.bar
+include file=layer.well
+include file=layer.bar
+include file=layer.well
+include file=layer.bar
+include file=layer.well
+include file=layer.bar
+include file=layer.well
+include file=layer.bar
+include file=layer.well
+include file=layer.bar
+$------------------
+$ NUMBER 3
+$modified : p to n doping, d, grade
+$
+layer_mater  macro_name=algan  column_num=1  var_symbol1=x  grade_var=1 &&
+grade_from=0.8  grade_to=1.
+layer  d=0.05  n=7  r=0.8
+$-------------------------
+$ NUMBER 4
+$modified : remove doping, d
+$
+layer_mater macro_name=algan column_num=1 var_symbol1=x var1=1
+layer d=0.05 n= 5 r=+1.1
+$-------------------
+top_contact column_num=1 from=0 to=1 contact_num=2 contact_type=ohmic
+end_layer

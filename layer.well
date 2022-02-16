@@ -1,0 +1,6 @@
+$.well
+layer_mater macro_name=algan var1=0.65 column_num=1 &&
+  var_symbol1=x &&
+  active_macro=AlGaN/AlGaN avar1=0.65 avar2=0.8 &&
+  avar_symbol1=xw avar_symbol2=xb
+layer d=0.0015   n=7  r=1.
